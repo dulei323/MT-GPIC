@@ -7,11 +7,8 @@ close all;
 clc;
 % Load data
 % load('Data_SNP_Protein_Imaging.mat');
-%   load('data_using.mat');
-load('Data_SNP_CSF_Plasma_VBM.mat')
-sub = (112777 - 10 : 112777 + 9);
-%          sub = (107777: 117776);
-%          sub = 1 : 152787;
+load('data_using.mat');
+sub = (107777: 117776);
 snp_name = SNP_ID(sub);
 protein_name = plasma_ID;
 img_name1 =img_name;
@@ -19,12 +16,12 @@ Y{1} = snp(:, sub);
 Y{2} = plasma_adj;
 Y{3} = img_vbm_adj;
 % BL_DX = BL_DX;
-%% Normalization
+% Normalization
 X{1}  = getNormalization(Y{1}, 'normalize');
 X{2} = getNormalization(Y{2}, 'normalize');
 X{3} = getNormalization(Y{3}, 'normalize');
 % time_start = cputime;
-%% Tuned parameters
+% Tuned parameters
 % mtgpic 
 opts.mtgpic.lambda_1 = 0.1; % L1-norm for SNP
 % opts.mtgpic.lambda_11 = 1; % FGL 
@@ -36,7 +33,7 @@ opts.mtgpic.lambda_3 = 1;  % L1-norm for Imaging
 opts.mtgpic.lambda_GGL = 1;  % GGL-norm for Imaging
 opts.mtgpic.lambda = 0.1;% L1-norm for Q
 opts.mtgpic.alpha = 1;% alpha
-%% Kfold Cross validation
+% Kfold Cross validation
 n = size(X{1}, 1);
 k_fold = 2;
 indices = crossvalind('Kfold', n, k_fold);
