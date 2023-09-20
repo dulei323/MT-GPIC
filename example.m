@@ -35,7 +35,7 @@ opts.mtgpic.lambda = 0.1;% L1-norm for Q
 opts.mtgpic.alpha = 1;% alpha
 % Kfold Cross validation
 n = size(X{1}, 1);
-k_fold = 2;
+k_fold = 5;
 indices = crossvalind('Kfold', n, k_fold);
 fprintf('===================================\n');
 for k = 1 : k_fold
