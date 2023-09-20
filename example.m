@@ -8,7 +8,7 @@ clc;
 % Load data
 % load('Data_SNP_Protein_Imaging.mat');
 load('data_using.mat');
-sub = (107777: 117776);
+sub = snp_position;
 snp_name = SNP_ID(sub);
 protein_name = plasma_ID;
 img_name1 =img_name;
