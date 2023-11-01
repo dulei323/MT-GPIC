@@ -1,11 +1,5 @@
 # MT-GPIC
 
-Multi-Task Genotype-Protein Interaction and Correlation disentangling method 
-
-Paper:
-
-Modeling genotype-protein interaction and correlation for Alzheimer’s disease: A multi-omics imaging genetics study
-
 Code:
 
 Run example.m to get the results.
